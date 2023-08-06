@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Home.module.css";
-import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytes, listAll, getDownloadURL, deleteObject} from "firebase/storage";
 import { storage } from "../../firebase";
+
 
 function Home({ userId }) {
   const [imageUpload, setImageUpload] = useState(null);
@@ -19,8 +20,21 @@ function Home({ userId }) {
     });
   };
 
-  const handleDelete = () => {
-    console.log('Delete Image')
+
+const handleGenerate = (url, userId)=> {
+  fetch(`https://pyhplasticdetection.azurewebsites.net/api/httptrigger1pypld?image=${url}&userId=${userId}`)
+}
+
+  const handleDelete = (url) => {
+    console.log('Delete Image', url)
+    const fileRef= ref(storage, url)
+    deleteObject(fileRef).then(() => {
+      // File deleted successfully
+    console.log('file deleted')
+    }).catch((error) => {
+      // Uh-oh, an error occurred!
+    console.log("ERROR: ", error)
+    });
   }
 
   useEffect(() => {
@@ -69,7 +83,7 @@ function Home({ userId }) {
           </div>
         </div>
 
-        <button style={{ padding: "5px 25px", margin: 25, width: 250 }}>
+        <button style={{ padding: "5px 25px", margin: 25, width: 250 }} onClick={handleGenerate}>
           Generate
         </button>
       </div>
@@ -80,7 +94,7 @@ function Home({ userId }) {
           return (
             <div key={id}>
               <img src={url} height={"250px"} style={{ margin: 25 }} />
-              <button onClick={handleDelete}>
+              <button onClick={()=> handleDelete(url)}>
                 Delete image
               </button>
             </div>
