@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/plastic-detection/static/css/main.69c4a9af.css",
-    "main.js": "/plastic-detection/static/js/main.0c1054b3.js",
+    "main.js": "/plastic-detection/static/js/main.1aafa0d0.js",
     "index.html": "/plastic-detection/index.html",
     "main.69c4a9af.css.map": "/plastic-detection/static/css/main.69c4a9af.css.map",
-    "main.0c1054b3.js.map": "/plastic-detection/static/js/main.0c1054b3.js.map"
+    "main.1aafa0d0.js.map": "/plastic-detection/static/js/main.1aafa0d0.js.map"
   },
   "entrypoints": [
     "static/css/main.69c4a9af.css",
-    "static/js/main.0c1054b3.js"
+    "static/js/main.1aafa0d0.js"
   ]
 }
