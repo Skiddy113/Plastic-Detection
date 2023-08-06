@@ -1,0 +1,36 @@
+.navbar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: rgb(175, 175, 175);
+}
+
+.logoContainer {
+    display: grid;
+    place-items: center;
+    margin-right: 50px;
+}
+
+.welcomeContainer {
+    display: flex;
+    min-width: 250px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcomeContainer button {
+    padding: 8px 12px;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-between;
+    min-width: 140px;
+        list-style-type: none;
+}
+
+.navbar ul li a {
+    color: black;
+    text-decoration: none;
+}
